@@ -142,6 +142,5 @@ llm.py —— 基于检索片段生成回答（带引用）
 
 - **首次启动较慢**：需加载 embedding + rerank 模型（约 10~20 秒）
 - **内存要求**：reranker 约 1.5GB，建议 8GB 以上；不足可设 `ENABLE_RERANK=false`
-- **API 余额**：生成端账户需有余额（不足会报 402）
 - **文档不随仓库分发**：`data/docs/` 已 gitignore，请放入自己的资料后执行 `python ingest.py`
 
