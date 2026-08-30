@@ -1,0 +1,272 @@
+[
+  {
+    "question": "什么是装饰器",
+    "doc": "Python学习笔记",
+    "answer_points": [
+      "装饰器本质是接收函数作为参数、返回新函数的高阶函数",
+      "可在不修改原函数代码的前提下增加日志、计时、权限校验等能力",
+      "@decorator_name 语法糖等价于 func = decorator(func)"
+    ]
+  },
+  {
+    "question": "生成器是怎么工作的",
+    "doc": "Python学习笔记",
+    "answer_points": [
+      "生成器是惰性求值的迭代器，用 yield 关键字实现",
+      "每次调用 next() 才计算下一个值，不一次性把所有结果放进内存",
+      "适合处理大文件或无限序列"
+    ]
+  },
+  {
+    "question": "上下文管理器是干嘛的",
+    "doc": "Python进阶",
+    "answer_points": [
+      "用 with 语句管理资源，保证使用结束后正确释放",
+      "即使中途抛出异常也会关闭资源",
+      "可用 __enter__/__exit__ 魔术方法或 contextlib 的 contextmanager 装饰器实现"
+    ]
+  },
+  {
+    "question": "asyncio 是什么",
+    "doc": "Python进阶",
+    "answer_points": [
+      "Python 的异步编程框架，核心是事件循环（event loop）和协程",
+      "用 async def 定义协程、await 挂起等待",
+      "适合 IO 密集场景（如并发网络请求），不能让 CPU 密集任务变快"
+    ]
+  },
+  {
+    "question": "LEFT JOIN 和 INNER JOIN 有什么区别",
+    "doc": "SQL数据库",
+    "answer_points": [
+      "INNER JOIN 只返回两表都匹配的行",
+      "LEFT JOIN 返回左表全部行，右表没有匹配的用 NULL 填充",
+      "ON 控制是否匹配，WHERE 里过滤右表条件会削弱 LEFT JOIN 效果（等价于 INNER JOIN）"
+    ]
+  },
+  {
+    "question": "事务的 ACID 分别代表什么",
+    "doc": "SQL数据库",
+    "answer_points": [
+      "A 原子性：全部成功或全部失败，不可拆分",
+      "C 一致性、I 隔离性、D 持久性",
+      "常见隔离级别：READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ、SERIALIZABLE"
+    ]
+  },
+  {
+    "question": "merge 和 rebase 有什么区别",
+    "doc": "Git版本控制",
+    "answer_points": [
+      "merge 保留分支历史、产生一个合并提交（merge commit）",
+      "rebase 把当前分支的提交搬到目标分支之上，让历史变成一条直线",
+      "rebase 会改写提交历史，在已共享的分支上要慎用"
+    ]
+  },
+  {
+    "question": "怎么做响应式布局",
+    "doc": "前端开发",
+    "answer_points": [
+      "核心技术是 CSS 媒体查询（media query），根据屏幕宽度调整布局",
+      "配合弹性布局 flex 和网格布局 grid",
+      "使用相对单位（rem、百分比），推荐移动优先（mobile-first）"
+    ]
+  },
+  {
+    "question": "激活函数为什么重要",
+    "doc": "深度学习基础",
+    "answer_points": [
+      "给神经网络引入非线性，否则多层线性变换等价于单层，网络白深了",
+      "常用：ReLU（计算快、最常用）、Sigmoid（适合二分类输出层）、Tanh",
+      "ReLU 缺点是神经元死亡，可用 LeakyReLU 缓解"
+    ]
+  },
+  {
+    "question": "ResNet 用什么解决深层网络退化",
+    "doc": "深度学习基础",
+    "answer_points": [
+      "提出残差连接（skip connection），输出 = F(x) + x",
+      "恒等映射让梯度可以无损穿过网络",
+      "使几百层的网络也能训练"
+    ]
+  },
+  {
+    "question": "什么是过拟合",
+    "doc": "机器学习基础",
+    "answer_points": [
+      "模型在训练集上表现很好，但在没见过的新数据上表现很差",
+      "本质是把训练数据里的噪声和偶然性也学进去了，泛化能力差",
+      "解决手段：增加训练数据、正则化、Dropout、早停、简化模型"
+    ]
+  },
+  {
+    "question": "验证集和测试集有什么区别",
+    "doc": "机器学习基础",
+    "answer_points": [
+      "验证集用来调超参数、选模型、做早停判断",
+      "测试集只在最后评估模型的真实泛化能力",
+      "测试集绝不能参与训练或调参，否则评估结果失真"
+    ]
+  },
+  {
+    "question": "慢查询怎么优化",
+    "doc": "数据库优化",
+    "answer_points": [
+      "先用 EXPLAIN 分析执行计划，看是否走索引、有没有全表扫描",
+      "针对性优化：补索引、改写 SQL（避免 SELECT *、避免索引列上用函数）",
+      "减少返回数据量，必要时优化表结构"
+    ]
+  },
+  {
+    "question": "什么情况下索引会失效",
+    "doc": "数据库优化",
+    "answer_points": [
+      "对索引列使用函数或运算，如 WHERE YEAR(create_time)=2024",
+      "LIKE 以 % 开头、隐式类型转换、OR 连接非索引列",
+      "联合索引不满足最左前缀原则"
+    ]
+  },
+  {
+    "question": "数组和链表有什么区别",
+    "doc": "数据结构与算法",
+    "answer_points": [
+      "数组是连续内存，随机访问 O(1)，插入删除要移动元素 O(n)",
+      "链表通过指针串联，插入删除 O(1)，随机访问要遍历 O(n)",
+      "数组缓存友好，链表每个节点有指针额外开销"
+    ]
+  },
+  {
+    "question": "动态规划的核心是什么",
+    "doc": "数据结构与算法",
+    "answer_points": [
+      "三要素：状态定义 + 状态转移方程 + 初始化",
+      "适用于有重叠子问题和最优子结构的问题",
+      "可用滚动数组优化空间复杂度"
+    ]
+  },
+  {
+    "question": "大O表示法什么意思",
+    "doc": "算法复杂度",
+    "answer_points": [
+      "描述算法运行时间随输入规模增长的趋势",
+      "忽略常数因子和低阶项，只保留最高阶",
+      "常见：O(1) 常数、O(log n) 对数、O(n) 线性、O(n log n)、O(n²) 平方、O(2^n) 指数"
+    ]
+  },
+  {
+    "question": "这个知识库项目用了哪些技术",
+    "doc": "知识库Agent项目说明",
+    "answer_points": [
+      "界面 Streamlit，大模型 DeepSeek（OpenAI 兼容协议）",
+      "向量化 bge-small-zh-v1.5，检索 BM25 + 向量 RRF 混合，rerank 用 bge-reranker-base",
+      "存储用 JSON + npy，联网搜索用 Tavily"
+    ]
+  },
+  {
+    "question": "RAG 是什么",
+    "doc": "知识库Agent项目说明",
+    "answer_points": [
+      "Retrieval-Augmented Generation，检索增强生成",
+      "三步：检索（找资料）→ 增强（拼进提示词）→ 生成（大模型回答）",
+      "解决大模型的幻觉、知识过时、没有私有数据三个问题"
+    ]
+  },
+  {
+    "question": "容器和虚拟机有什么区别",
+    "doc": "Docker容器",
+    "answer_points": [
+      "虚拟机虚拟整台机器，每个 VM 有完整操作系统，隔离彻底但资源开销大",
+      "容器共享宿主机内核，只隔离进程和文件系统，启动快（秒级）、占用小",
+      "容器隔离性不如虚拟机，与宿主机共享内核"
+    ]
+  },
+  {
+    "question": "怎么减小镜像体积",
+    "doc": "Docker容器",
+    "answer_points": [
+      "用轻量基础镜像，如 python:3.11-slim、alpine",
+      "多阶段构建：编译阶段和运行阶段分离，运行时只带产物",
+      "合并 RUN 指令、用 .dockerignore 排除无关文件"
+    ]
+  },
+  {
+    "question": "chmod 改权限怎么用",
+    "doc": "Linux命令基础",
+    "answer_points": [
+      "数字法：r=4、w=2、x=1，三位分别对应所有者、组、其他人",
+      "chmod 755 表示所有者 rwx、组和其他人 r-x",
+      "符号法：u 所有者、g 组、o 其他、a 所有人，如 chmod u+x"
+    ]
+  },
+  {
+    "question": "在服务器上看实时日志怎么搞",
+    "doc": "Linux命令基础",
+    "answer_points": [
+      "用 tail -f 文件名实时跟踪文件新增内容",
+      "配合 grep 过滤关键字，如 grep ERROR",
+      "less 分页查看、head/tail 看开头结尾"
+    ]
+  },
+  {
+    "question": "怎么按行读取一个大文件",
+    "doc": "Python字符串与文件处理",
+    "answer_points": [
+      "用 for line in f 逐行迭代，而不是 read() 一次性读入",
+      "避免把整个文件读进内存导致内存爆掉",
+      "推荐用 with 语句打开文件，用完自动关闭"
+    ]
+  },
+  {
+    "question": "API 鉴权有哪些方式",
+    "doc": "后端开发基础",
+    "answer_points": [
+      "JWT：无状态，token 自带用户信息，适合分布式",
+      "Session：有状态，服务端保存会话，客户端只存 session id",
+      "OAuth2：第三方授权，适合开放平台"
+    ]
+  },
+  {
+    "question": "密码应该怎么存才安全",
+    "doc": "后端开发基础",
+    "answer_points": [
+      "用哈希加盐存储，绝不能存明文",
+      "每个用户使用随机盐，防止彩虹表攻击",
+      "用 bcrypt、argon2 等刻意慢的哈希算法抵抗暴力破解"
+    ]
+  },
+  {
+    "question": "缓存穿透怎么解决",
+    "doc": "Redis缓存",
+    "answer_points": [
+      "缓存空值：查询结果为 None 也缓存，设置较短过期时间",
+      "布隆过滤器：请求前先过过滤器，不存在的 key 直接拦截",
+      "参数校验：对非法 ID 直接拒绝"
+    ]
+  },
+  {
+    "question": "缓存击穿和雪崩有什么区别",
+    "doc": "Redis缓存",
+    "answer_points": [
+      "击穿是单个热点 key 突然过期，大量并发请求同时打数据库 → 用互斥锁",
+      "雪崩是大批缓存同时失效或缓存服务挂掉 → 过期时间加随机值、高可用",
+      "击穿影响单个 key，雪崩影响范围更大，可能压垮整个数据库"
+    ]
+  },
+  {
+    "question": "什么是继承",
+    "doc": "面向对象编程",
+    "answer_points": [
+      "子类复用父类的属性和方法，实现代码复用",
+      "表达 is-a（是一种）的关系",
+      "子类可重写父类方法，用 super() 调用父类实现"
+    ]
+  },
+  {
+    "question": "TCP 三次握手是什么",
+    "doc": "网络基础",
+    "answer_points": [
+      "第一次：客户端发送 SYN 报文，携带初始序列号",
+      "第二次：服务端回复 SYN+ACK，确认收到并带上自己的序列号",
+      "第三次：客户端回 ACK，双方确认收发能力后连接建立"
+    ]
+  }
+]
